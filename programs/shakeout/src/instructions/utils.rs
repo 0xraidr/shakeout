@@ -1,3 +1,6 @@
+
+// went this route to avoid using a float in a smart contract
+
 pub fn calculate_75_percent(amount: u32) -> u32 {
     // Scale up by 100
     let scaled_amount = amount * 100;

@@ -7,12 +7,10 @@ use crate::utils::*;
 
 
 pub fn early_withdraw_handler(ctx: Context<EarlyWithdraw>, amount: u32) -> Result<()> {
-
     require!(amount <= ctx.accounts.state.balance, ShakeOutError::InvalidWithdraw);
 
     let amt_after_tax = calculate_75_percent(amount);
     let tax = amount - amt_after_tax;
-
 
     let accounts = Transfer {
         from: ctx.accounts.vault.to_account_info(),
@@ -53,7 +51,6 @@ pub fn early_withdraw_handler(ctx: Context<EarlyWithdraw>, amount: u32) -> Resul
         signer_seeds
     );
     transfer(cpi, tax as u64)
-
 }
 
 #[derive(Accounts)]

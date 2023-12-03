@@ -1,7 +1,5 @@
 use anchor_lang::prelude::*;
-use crate::{state::VaultState, 
-    // GameError
-};
+use crate::state::VaultState;
 
 pub fn initialize_handler(ctx: Context<Initialize>) -> Result<()> {
     let user_state = &mut ctx.accounts.state;
